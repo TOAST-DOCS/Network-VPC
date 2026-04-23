@@ -14,7 +14,7 @@ The OpenStack-compatible APIs are provided as follows.
 
 The fields included in requests and responses from OpenStack-compatible APIs are limited to the fields specified in this document among those provided by the OpenStack neutron APIs in accordance with NHN Cloud policies.
 
-To use the API, you need the API endpoint and token. Prepare information required to use the API by referring to [API Preparations](/Compute/Compute/en/identity-api/)
+NHN Cloud Network service uses IaaS tokens for authentication and authorization when making API calls. The IaaS token is an authentication token used for NHN Cloud's OpenStack-based infrastructure services (IaaS). For more information on issuing and using IaaS tokens, please refer to the [IaaS token](/nhncloud/en/public-api/iaas-token).
 
 For Openstack compatible APIs, the `network` type endpoint is used. For more details, see `serviceCatalog` from the response of token issuance.
 
@@ -45,7 +45,7 @@ This API does not require a request body.
 | tenant_id | Query | String | - | Tenant ID to which network to query is included |
 | sort_dir | Query | Enum | - | Sorting direction of network to query<br>Sort by the field specified by `sort_key`<br>Either **asc**, or **desc** |
 | sort_key | Query | String | - | Sorting key of network to query<br>Sort in the direction as specified by `sort_dir` |
-| fields | Query | String | - | Field name of network to query<br>e.g.) `fields=id&fields=name` |
+| fields | Query | String | - | Field name of network to query<br>e.g., `fields=id&fields=name` |
 
 #### Response
 
@@ -62,7 +62,6 @@ This API does not require a request body.
 | networks.shared | Body | Boolean | Whether to share network |
 | networks.port_security_enabled | Body | Boolean | Whether network port is secured<br>Decide whether to enable security of port created in the network |
 | networks.id | Body | String | Network ID |
-| networks.name | Body | String | Network name |
 | networks_links | Body | Array | Information object for pagination<br>Return when `limit` or `offset` is added<br>Includes paths indicating the next list |
 
 <details><summary>Example</summary>
@@ -131,7 +130,7 @@ This API does not require a request body.
 | shared | Query | Boolean | - | Whether to share subnet to query |
 | sort_dir | Query | Enum | - | Sorting direction of subnet to query<br>Sort by the field specified by `sort_key`<br>Either **asc**, or **desc** |
 | sort_key | Query | String | - | Sorting key of subnet to query<br>Sort in the direction as specified by `sort_dir` |
-| fields | Query | String | - | Field name of subnet to query<br>e.g.) `fields=id&fields=name` |
+| fields | Query | String | - | Field name of subnet to query<br>e.g., `fields=id&fields=name` |
 
 #### Response
 
@@ -209,7 +208,7 @@ This API does not require a request body.
 |---|---|---|---|---|
 | tokenId | Header | String | O | Token ID |
 | id | Query | UUID | - | ID of port IP to query |
-| status | Query | Enum | - | Port status to query<br>Either `ACTIVE`, `BUILD` or `DOWN`. |
+| status | Query | Enum | - | Port status to query<br>Either `ACTIVE`, `BUILD` or `DOWN` |
 | name | Query | String | - | Port name to query |
 | admin_state | Query | Boolean | - | Administrator control status of port to query |
 | network_id | Query | UUID | - | Network ID of port to query |
@@ -282,7 +281,7 @@ This API does not require a request body.
 ---
 
 ### Get Port
-
+Retrieves a port.
 ```
 GET /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
@@ -295,16 +294,16 @@ This API does not require a request body.
 |---|---|---|---|---|
 | portId | URL | UUID | O | Port ID |
 | tokenId | Header | String | O | Token ID |
-| fields | Query | String | - | Field name of port to query<br>e.g.) `fields=id&fields=name` |
+| fields | Query | String | - | Field name of port to query<br>e.g., `fields=id&fields=name` |
 
 #### Response
 
 | Name | Type | Format | Description |
 |---|---|---|---|
-|  port | Body | Array | Port information object |
+|  port | Body | Object | Port information object |
 | port.id | Body | UUID | Port ID |
 | port.name | Body | String | Port name |
-| port.status | Body | Enum | Port status<br>One of `ACTIVE`, `BUILD`, or `DOWN`. |
+| port.status | Body | Enum | Port status<br>One of `ACTIVE`, `BUILD`, or `DOWN` |
 | port.admin_state_up | Body | Boolean | Admin control status of port |
 | port.network_id | Body | UUID | Network ID of port |
 | port.tenant_id | Body | String | Tenant ID |
@@ -378,10 +377,15 @@ X-Auth-Token: {tokenId}
 | port.security_groups | Body | Array | - | A list of security group IDs to set on the port. Default `default security group's ID`<br>Settable when port security is enabled |
 | port.allowed_address_pairs | Body | Array | - | List of allowed address pairs for the port<br>Settable when port security is enabled |
 | port.allowed_address_pairs.ip_address | Body | String | - | IP address to allow |
-| port.allowed_address_pairs.mac_address | Body | String | - | MAC address to allow |
 | port.extra_dhcp_opts | Body | Array | - | Additional DHCP option |
 | port.device_owner | Body | String | - | Resource type using port |
 | port.device_id | Body | UUID | - | Resource ID using port. Specify as `network:virtual_ip` when using as a virtual IP|
+
+!!! tip "Note"
+    The following settings are restricted according to security and operational policies:
+    * **fixed_ips**: A single port cannot contain duplicate `subnet_id` values.
+    * **allowed_address_pairs(IP)**: When configuring `ip_address`, CIDRs that include the `/0` prefix (e.g., 0.0.0.0/0) are restricted.
+    * **allowed_address_pairs(MAC)**: `mac_address` field input is not supported.
 
 <details><summary>Example</summary>
 <p>
@@ -403,10 +407,10 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Description |
 |---|---|---|---|
-| port | Body | Array | Port information object |
+| port | Body | Object | Port information object |
 | port.id | Body | UUID | Port ID |
 | port.name | Body | String | Port name |
-| port.status | Body | Enum | Port status<br>One of `ACTIVE`, `BUILD`, or `DOWN`.. |
+| port.status | Body | Enum | Port status<br>One of `ACTIVE`, `BUILD`, or `DOWN` |
 | port.admin_state_up | Body | Boolean | Admin control status of port |
 | port.network_id | Body | UUID | Network ID of port |
 | port.tenant_id | Body | String | Tenant ID |
@@ -467,8 +471,9 @@ X-Auth-Token: {tokenId}
 #### Request
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
+| portId | URL | UUID | O | Port ID |
 | tokenId | Header | String | O | Token ID |
-| port | Body | Object | O | Object requesting of creating a port |
+| port | Body | Object | O | Object requesting of changing a port |
 | port.name | Body | String | - | Port name |
 | port.admin_state_up | Body | Boolean | - | Admin control status of port |
 | port.fixed_ips | Body | Array | - | List of fixed IPs of port |
@@ -478,8 +483,13 @@ X-Auth-Token: {tokenId}
 | port.security_groups | Body | Array | - | List of security group IDs to set on the port. If you enter an empty list, remove all<br>Can be set when port security is enabled |
 | port.allowed_address_pairs | Body | Array | - | List of allowed address pairs for the port. Remove all when entering an empty list<br>Can be set when port security is enabled |
 | port.allowed_address_pairs.ip_address | Body | String | - | IP addresses to allow |
-| port.allowed_address_pairs.mac_address | Body | String | - | MAC addresses to allow |
 | port.extra_dhcp_opts | Body | Array | - | Additional DHCP option |
+
+!!! tip "Note"
+    The following settings are restricted according to security and operational policies:
+    * **fixed_ips**: A single port cannot contain duplicate `subnet_id` values.
+    * **allowed_address_pairs(IP)**: When configuring `ip_address`, CIDRs that include the `/0` prefix (e.g., 0.0.0.0/0) are restricted.
+    * **allowed_address_pairs(MAC)**: `mac_address` field input is not supported.
 
 <details><summary>Example</summary>
 <p>
@@ -500,10 +510,10 @@ X-Auth-Token: {tokenId}
 
 | Name | Type | Format | Description |
 |---|---|---|---|
-| port | Body | Array | Port information object |
+| port | Body | Object | Port information object |
 | port.id | Body | UUID | Port ID |
 | port.name | Body | String | Port name |
-| port.status | Body | Enum | Port status<br>One of `ACTIVE`, `BUILD`, or `DOWN`. |
+| port.status | Body | Enum | Port status<br>One of `ACTIVE`, `BUILD`, or `DOWN` |
 | port.admin_state_up | Body | Boolean | Admin control status of port |
 | port.network_id | Body | UUID | Network ID of port |
 | port.tenant_id | Body | String | Tenant ID |
@@ -551,6 +561,8 @@ X-Auth-Token: {tokenId}
 
 </p>
 </details>
+
+---
 
 ### Delete a port
 
