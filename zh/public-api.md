@@ -30,7 +30,6 @@ This API does not require a request body.
 | name            | Query  | String  | -   | Network name to query                                                               |
 | router:external | Query  | Boolean | -   | Whether network is externally connected                                                        |
 | shared          | Query  | Boolean | -   | Whether to share network to query                                                           |
-| tenant_id       | Query  | String  | -   | Tenant ID to which network to query is included                                                       |
 | sort_dir        | Query  | Enum    | -   | Sorting direction of network to query<br>Sort by the field specified by `sort_key`<br>Either **asc**, or **desc** |
 | sort_key        | Query  | String  | -   | Sorting key of network to query<br>Sort in the direction as specified by `sort_dir`                                |
 

@@ -30,7 +30,6 @@ X-Auth-Token: {tokenId}
 | name            | Query  | String  | -   | 조회할 네트워크 이름                                                               |
 | router:external | Query  | Boolean | -   | 조회할 네트워크의 외부 연결 여부                                                        |
 | shared          | Query  | Boolean | -   | 조회할 네트워크의 공유 여부                                                           |
-| tenant_id       | Query  | String  | -   | 조회할 네트워크가 속한 테넌트 ID                                                       |
 | sort_dir        | Query  | Enum    | -   | 조회할 네트워크의 정렬 방향<br>`sort_key`에서 지정한 필드를 기준으로 정렬<br>**asc**, **desc** 중 하나 |
 | sort_key        | Query  | String  | -   | 조회할 네트워크의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬                                |
 
