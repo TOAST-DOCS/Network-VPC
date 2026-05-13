@@ -30,7 +30,6 @@ X-Auth-Token: {tokenId}
 | name            | Query  | String  | -   | 照会するネットワーク名                                                            |
 | router:external | Query  | Boolean | -   | 照会するネットワークの外部接続の有無                                                      |
 | shared          | Query  | Boolean | -   | 照会するネットワークの共有の有無                                                         |
-| tenant_id       | Query  | String  | -   | 照会するネットワークが属するテナントID                                                       |
 | sort_dir        | Query  | Enum    | -   | 照会するネットワークのソート方向<br>`sort_key`で指定したフィールドを基準にソート<br>**asc**、**desc**のいずれか |
 | sort_key        | Query  | String  | -   | 照会するネットワークのソートキー<br>`sort_dir`で指定した方向でソート                             |
 
