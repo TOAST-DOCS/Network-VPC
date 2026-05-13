@@ -49,7 +49,6 @@ This API does not require a request body.
 | networks.shared | Body | Boolean | Whether to share network |
 | networks.port_security_enabled | Body | Boolean | Whether network port is secured<br>Decide whether to enable security of port created in the network |
 | networks.id | Body | String | Network ID |
-| networks.name | Body | String | Network name |
 | networks_links | Body | Array | Information object for pagination<br>Return when `limit` or `offset` is added<br>Includes paths indicating the next list |
 
 <details><summary>Example</summary>
