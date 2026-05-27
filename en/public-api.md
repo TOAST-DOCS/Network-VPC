@@ -1,6 +1,6 @@
 ## Network > VPC > API v2 Guide
 
-To use the API, you need the API endpoint and token. Prepare information required to use the API by referring to [API Preparations](/Compute/Compute/en/identity-api/)
+NHN Cloud Network services use IaaS tokens for authentication and authorization when making API calls. The IaaS token is an authentication token used for NHN Cloud's OpenStack-based infrastructure services (IaaS). For more information on issuing and using IaaS tokens, please refer to the [IaaS Token](/nhncloud/en/public-api/iaas-token).
 
 For VPC API, the `network` type endpoint is used. For more details, see `serviceCatalog` from the response of token issuance.
 
@@ -30,7 +30,6 @@ This API does not require a request body.
 | name            | Query  | String  | -   | Network name to query                                                               |
 | router:external | Query  | Boolean | -   | Whether network is externally connected                                                        |
 | shared          | Query  | Boolean | -   | Whether to share network to query                                                           |
-| tenant_id       | Query  | String  | -   | Tenant ID to which network to query is included                                                       |
 | sort_dir        | Query  | Enum    | -   | Sorting direction of network to query<br>Sort by the field specified by `sort_key`<br>Either **asc**, or **desc** |
 | sort_key        | Query  | String  | -   | Sorting key of network to query<br>Sort in the direction as specified by `sort_dir`                                |
 

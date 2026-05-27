@@ -1,6 +1,6 @@
 ## Network > VPC > API v2ガイド
 
-APIを使用するにはAPIエンドポイントとトークンなどが必要です。[API使用準備](/Compute/Compute/ko/identity-api/)を参照してAPI使用に必要な情報を準備します。
+NHN Cloud Networkサービスは、API呼び出し時の認証/認可のためにIaaSトークンを使用します。IaaSトークンは、NHN CloudのOpenStackベースのインフラサービス(IaaS)で使用する認証トークンです。IaaSトークンの発行及び使用に関する詳細は、[IaaSトークン](/nhncloud/ja/public-api/iaas-token)を参照してください。
 
 VPC APIは`network`タイプエンドポイントを利用します。正確なエンドポイントはトークン発行レスポンスの`serviceCatalog`を参照します。
 
@@ -30,7 +30,6 @@ X-Auth-Token: {tokenId}
 | name            | Query  | String  | -   | 照会するネットワーク名                                                            |
 | router:external | Query  | Boolean | -   | 照会するネットワークの外部接続の有無                                                      |
 | shared          | Query  | Boolean | -   | 照会するネットワークの共有の有無                                                         |
-| tenant_id       | Query  | String  | -   | 照会するネットワークが属するテナントID                                                       |
 | sort_dir        | Query  | Enum    | -   | 照会するネットワークのソート方向<br>`sort_key`で指定したフィールドを基準にソート<br>**asc**、**desc**のいずれか |
 | sort_key        | Query  | String  | -   | 照会するネットワークのソートキー<br>`sort_dir`で指定した方向でソート                             |
 
