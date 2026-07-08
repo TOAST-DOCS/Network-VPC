@@ -1,4 +1,5 @@
-## Network > VPC > Openstack Compatible API Guide
+<a id="network-vpc-openstack-compatible-api-guide"></a>
+## Network > VPC > Openstack Compatible API Guide { #network-vpc-openstack-compatible-api-guide }
 
 NHN Cloud Network services provide APIs compatible with OpenStack neutron APIs.
 The OpenStack-compatible APIs are provided as follows.
@@ -23,14 +24,17 @@ For Openstack compatible APIs, the `network` type endpoint is used. For more det
 | network | Korea (Pangyo) Region<br>Korea (Pyeongchon) Region<br>Korea (Gwangju) Region<br>Japan (Tokyo) Region | https://kr1-api-network-infrastructure.nhncloudservice.com<br>https://kr2-api-network-infrastructure.nhncloudservice.com<br>https://kr3-api-network-infrastructure.nhncloudservice.com<br>https://jp1-api-network-infrastructure.nhncloudservice.com |
 
 
-## Network
-### List Networks
+<a id="network"></a>
+## Network { #network }
+<a id="list-networks"></a>
+### List Networks { #list-networks }
 Returns the list of available networks.
 ```
 GET /v2.0/networks
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-networks-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -47,6 +51,7 @@ This API does not require a request body.
 | sort_key | Query | String | - | Sorting key of network to query<br>Sort in the direction as specified by `sort_dir` |
 | fields | Query | String | - | Field name of network to query<br>e.g., `fields=id&fields=name` |
 
+<a id="list-networks-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -108,14 +113,17 @@ This API does not require a request body.
 
 ---
 
-## Subnet
-### List Subnets
+<a id="subnet"></a>
+## Subnet { #subnet }
+<a id="list-subnets"></a>
+### List Subnets { #list-subnets }
 Returns the list of available subnets.
 ```
 GET /v2.0/subnets
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-subnets-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -132,6 +140,7 @@ This API does not require a request body.
 | sort_key | Query | String | - | Sorting key of subnet to query<br>Sort in the direction as specified by `sort_dir` |
 | fields | Query | String | - | Field name of subnet to query<br>e.g., `fields=id&fields=name` |
 
+<a id="list-subnets-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -193,14 +202,17 @@ This API does not require a request body.
 
 ---
 
-## Port
-### List Ports
+<a id="port"></a>
+## Port { #port }
+<a id="list-ports"></a>
+### List Ports { #list-ports }
 Return the list of ports.
 ```
 GET /v2.0/ports
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-ports-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -219,6 +231,7 @@ This API does not require a request body.
 | device_id | Query | UUID | - | Resource ID for the port to query |
 | fields | Query | String | - | Field name of port to query<br>e.g.) `fields=id&fields=name` |
 
+<a id="list-ports-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -280,13 +293,15 @@ This API does not require a request body.
 
 ---
 
-### Get Port
+<a id="get-port"></a>
+### Get Port { #get-port }
 Retrieves a port.
 ```
 GET /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-port-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -296,6 +311,7 @@ This API does not require a request body.
 | tokenId | Header | String | O | Token ID |
 | fields | Query | String | - | Field name of port to query<br>e.g., `fields=id&fields=name` |
 
+<a id="get-port-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -355,13 +371,15 @@ This API does not require a request body.
 
 ---
 
-### Create Port
+<a id="create-port"></a>
+### Create Port { #create-port }
 Creates a new port. The created port can be used when creating an instance.
 ```
 POST /v2.0/ports
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-port-request"></a>
 #### Request
 
 | Name | Type | Format | Required | Description |
@@ -403,6 +421,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-port-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -461,13 +480,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### Change Port
+<a id="change-port"></a>
+### Change Port { #change-port }
 Changes the properties of the specified port.
 ```
 PUT /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="change-port-request"></a>
 #### Request
 | Name | Type | Format | Required | Description |
 |---|---|---|---|---|
@@ -506,6 +527,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="change-port-response"></a>
 #### Response
 
 | Name | Type | Format | Description |
@@ -564,27 +586,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### Delete a port
-
-```
-
-```
-
-#### Request
-
-
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-|  |  | UUID | O |  |
-| tokenId | Header | String | O | Token ID |
-
-### Delete Port
+<a id="delete-port"></a>
+### Delete Port { #delete-port }
 Deletes a specified port.
 ```
 DELETE /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-port-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -593,6 +603,7 @@ This API does not require a request body.
 | portId | URL | UUID | O | Port ID |
 | tokenId | Header | String | O | Token ID |
 
+<a id="delete-port-response"></a>
 #### Response
 This API does not return a response body.
 

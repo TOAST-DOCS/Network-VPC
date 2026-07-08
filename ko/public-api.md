@@ -1,4 +1,5 @@
-## Network > VPC > API v2 가이드
+<a id="network-vpc-api-v2-guide"></a>
+## Network > VPC > API v2 가이드 { #network-vpc-api-v2-guide }
 
 NHN Cloud Network 서비스는 API 호출 시 인증/인가를 위해 IaaS 토큰을 사용합니다. IaaS 토큰은 NHN Cloud의 OpenStack 기반 인프라 서비스(IaaS)에서 사용하는 인증 토큰입니다. IaaS 토큰 발급 및 사용에 대한 자세한 내용은 [IaaS 토큰](/nhncloud/ko/public-api/iaas-token)을 참고하세요.
 
@@ -10,14 +11,17 @@ VPC API는 `network` 타입 엔드포인트를 이용합니다. 정확한 엔드
 
 API 응답에 가이드에 명시되지 않은 필드가 나타날 수 있습니다. 이런 필드는 NHN Cloud 내부 용도로 사용되며 사전 공지 없이 변경될 수 있으므로 사용하지 않습니다.
 
-## VPC
-### VPC 목록 보기
+<a id="vpc"></a>
+## VPC { #vpc }
+<a id="view-vpc-list"></a>
+### VPC 목록 보기 { #view-vpc-list }
 사용 가능한 VPC 목록을 반환합니다.
 ```
 GET /v2.0/vpcs
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-vpc-list-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -34,6 +38,7 @@ X-Auth-Token: {tokenId}
 | sort_key        | Query  | String  | -   | 조회할 네트워크의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬                                |
 
 
+<a id="view-vpc-list-response"></a>
 #### 응답
 | 이름                   | 종류   | 형식      | 설명                 |
 |----------------------|------|---------|--------------------|
@@ -70,13 +75,15 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 보기
+<a id="view-vpc"></a>
+### VPC 보기 { #view-vpc }
 지정한 VPC를 조회합니다.
 ```
 GET /v2.0/vpcs/{vpcId}  
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-vpc-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -85,6 +92,7 @@ X-Auth-Token: {tokenId}
 | vpcId     | URL    | String | O   | VPC ID              |
 | tokenId   | Header | String | O   | 토큰 ID               |
 
+<a id="view-vpc-response"></a>
 #### 응답
 
 | 이름                                     | 종류   | 형식       | 설명                                |
@@ -188,13 +196,15 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 생성하기
+<a id="create-vpc"></a>
+### VPC 생성하기 { #create-vpc }
 
 ```
 POST /v2.0/vpcs 
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-vpc-request"></a>
 #### 요청
 | 이름                      | 종류     | 형식     | 필수  | 설명                                   |
 |-------------------------|--------|--------|-----|--------------------------------------|
@@ -220,6 +230,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-vpc-response"></a>
 #### 응답
 | 이름              | 종류   | 형식      | 설명             |
 |-----------------|------|---------|----------------|
@@ -251,12 +262,14 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 수정하기
+<a id="modify-vpc"></a>
+### VPC 수정하기 { #modify-vpc }
 VPC의 이름과 VPC IP 대역을 변경합니다.
 ```
 PUT /v2.0/vpcs/{vpcId}
 X-Auth-Token: {tokenId}
 ```
+<a id="modify-vpc-request"></a>
 #### 요청
 
 
@@ -284,6 +297,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="modify-vpc-response"></a>
 #### 응답
 | 이름              | 종류   | 형식      | 설명             |
 |-----------------|------|---------|----------------|
@@ -317,12 +331,14 @@ X-Auth-Token: {tokenId}
 </details>
 
 
-### VPC 삭제하기
+<a id="delete-vpc"></a>
+### VPC 삭제하기 { #delete-vpc }
 지정한 VPC를 삭제합니다.
 ```
 DELETE /v2.0/vpcs/{vpcId}
 X-Auth-Token: {tokenId}
 ```
+<a id="delete-vpc-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -331,11 +347,14 @@ X-Auth-Token: {tokenId}
 | vpcId   | URL    | String | O   | VPC ID |
 | tokenId | Header | String | O   | 토큰 ID  |
 
+<a id="delete-vpc-response"></a>
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 
-## VPC 서브넷
-### VPC 서브넷 목록 보기
+<a id="vpc-subnet"></a>
+## VPC 서브넷 { #vpc-subnet }
+<a id="list-vpc-subnets"></a>
+### VPC 서브넷 목록 보기 { #list-vpc-subnets }
 사용 가능한 서브넷 목록을 반환합니다.
 
 ```
@@ -343,6 +362,7 @@ GET /v2.0/vpcsubnets
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-vpc-subnets-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -358,6 +378,7 @@ X-Auth-Token: {tokenId}
 | sort_key | Query | String | - | 조회할 서브넷의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬 |
 
 
+<a id="list-vpc-subnets-response"></a>
 #### 응답
 
 | 이름                                    | 종류   | 형식      | 설명                        |
@@ -445,13 +466,15 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 서브넷 보기
+<a id="view-vpc-subnet"></a>
+### VPC 서브넷 보기 { #view-vpc-subnet }
 지정한 서브넷을 조회합니다.
 ```
 GET /v2.0/vpcsubnets/{subnetId}  
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-vpc-subnet-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -461,6 +484,7 @@ X-Auth-Token: {tokenId}
 | tokenId  | Header | String | O   | 토큰 ID  |
 
 
+<a id="view-vpc-subnet-response"></a>
 #### 응답
 
 | 이름                                   | 종류   | 형식      | 설명                        |
@@ -546,12 +570,14 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 서브넷 생성하기
+<a id="create-vpc-subnet"></a>
+### VPC 서브넷 생성하기 { #create-vpc-subnet }
 새로운 서브넷을 생성합니다.
 ```
 POST /v2.0/vpcsubnets  
 X-Auth-Token: {tokenId}
 ```
+<a id="create-vpc-subnet-request"></a>
 #### 요청
 
 | 이름                  | 종류     | 형식     | 필수  | 설명              |
@@ -579,6 +605,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-vpc-subnet-response"></a>
 #### 응답
 
 | 이름                    | 종류   | 형식      | 설명                |
@@ -616,12 +643,14 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 서브넷 수정하기
+<a id="modify-vpc-subnet"></a>
+### VPC 서브넷 수정하기 { #modify-vpc-subnet }
 서브넷의 이름을 변경합니다.
 ```
 PUT /v2.0/vpcsubnets/{subnetId}  
 X-Auth-Token: {tokenId}
 ```
+<a id="modify-vpc-subnet-request"></a>
 #### 요청
 | 이름             | 종류     | 형식     | 필수  | 설명        |
 |----------------|--------|--------|-----|-----------|
@@ -644,6 +673,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="modify-vpc-subnet-response"></a>
 #### 응답
 
 | 이름                    | 종류   | 형식      | 설명                |
@@ -681,12 +711,14 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 서브넷을 라우팅 테이블에 연결하기
+<a id="connect-vpc-subnet-to-routing-table"></a>
+### VPC 서브넷을 라우팅 테이블에 연결하기 { #connect-vpc-subnet-to-routing-table }
 서브넷을 특정 라우팅 테이블에 명시적으로 연결합니다.
 ```
 PUT /v2.0/vpcsubnets/{subnetId}/attach_routingtable
 X-Auth-Token: {tokenId}
 ```
+<a id="connect-vpc-subnet-to-routing-table-request"></a>
 #### 요청
 | 이름       | 종류     | 형식     | 필수  | 설명     |
 |----------|--------|--------|-----|--------|
@@ -706,6 +738,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="connect-vpc-subnet-to-routing-table-response"></a>
 #### 응답
 
 | 이름                                   | 종류   | 형식      | 설명                        |
@@ -784,13 +817,15 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 서브넷과 라우팅 테이블의 연결을 해제하기
+<a id="detach-vpc-subnet-from-routing-table"></a>
+### VPC 서브넷과 라우팅 테이블의 연결을 해제하기 { #detach-vpc-subnet-from-routing-table }
 서브넷과 라우팅 테이블의 명시적 연결을 해제합니다.
 
 ```
 PUT /v2.0/vpcsubnets/{subnetId}/detach_routingtable
 X-Auth-Token: {tokenId}
 ```
+<a id="detach-vpc-subnet-from-routing-table-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -799,6 +834,7 @@ X-Auth-Token: {tokenId}
 | subnetId | URL    | UUID   | O   | 서브넷 ID |
 | tokenId  | Header | String | O   | 토큰 ID  |
 
+<a id="detach-vpc-subnet-from-routing-table-response"></a>
 #### 응답
 
 | 이름                                   | 종류   | 형식      | 설명                       |
@@ -878,7 +914,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### VPC 서브넷 삭제하기
+<a id="delete-vpc-subnet"></a>
+### VPC 서브넷 삭제하기 { #delete-vpc-subnet }
 
 지정한 서브넷을 삭제합니다.
 
@@ -887,6 +924,7 @@ DELETE /v2.0/vpcsubnets/{subnetId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-vpc-subnet-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -896,13 +934,16 @@ X-Auth-Token: {tokenId}
 | subnetId | URL    | UUID   | O   | 서브넷 ID |
 | tokenId  | Header | String | O   | 토큰 ID  |
 
+<a id="delete-vpc-subnet-response"></a>
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 
 
-## 라우팅 테이블
+<a id="routing-table"></a>
+## 라우팅 테이블 { #routing-table }
 
-### 라우팅 테이블 목록 보기
+<a id="view-routing-table-list"></a>
+### 라우팅 테이블 목록 보기 { #view-routing-table-list }
 
 사용 가능한 라우팅 테이블의 목록을 반환합니다.
 
@@ -911,6 +952,7 @@ GET /v2.0/routingtables
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-routing-table-list-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -928,6 +970,7 @@ X-Auth-Token: {tokenId}
 | sort_dir | Query  | Enum    | -   | 조회할 네트워크의 정렬 방향<br>`sort_key`에서 지정한 필드를 기준으로 정렬<br>**asc**, **desc** 중 하나 |
 | sort_key | Query  | String  | -   | 조회할 네트워크의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬 |
 
+<a id="view-routing-table-list-response"></a>
 #### 응답
 
 ##### **detail** 쿼리 파라미터가 없거나 값이 `false`일 때
@@ -1026,7 +1069,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우팅 테이블 보기
+<a id="view-routing-table"></a>
+### 라우팅 테이블 보기 { #view-routing-table }
 
 지정한 라우팅 테이블을 조회합니다.
 
@@ -1035,6 +1079,7 @@ GET /v2.0/routingtables/{routingtableId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-routing-table-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1044,6 +1089,7 @@ X-Auth-Token: {tokenId}
 | routingtableId | URL | UUID | O | 조회할 라우팅 테이블 ID |
 | tokenId | Header | String | O | 토큰 ID |
 
+<a id="view-routing-table-response"></a>
 #### 응답
 
 | 이름 | 종류   | 형식      | 설명 |
@@ -1118,7 +1164,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우팅 테이블 생성하기
+<a id="create-routing-table"></a>
+### 라우팅 테이블 생성하기 { #create-routing-table }
 
 새로운 라우팅 테이블을 생성합니다.
 
@@ -1127,6 +1174,7 @@ POST /v2.0/routingtables
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-routing-table-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1153,6 +1201,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-routing-table-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1186,7 +1235,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우팅 테이블 수정하기
+<a id="modify-routing-table"></a>
+### 라우팅 테이블 수정하기 { #modify-routing-table }
 
 라우팅 테이블의 정보를 수정합니다. 라우팅 테이블의 이름과 라우팅 방식(분산형/중앙 집중형)을 변경할 수 있습니다.
 
@@ -1195,6 +1245,7 @@ PUT /v2.0/routingtables/{routingtableId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="modify-routing-table-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1221,6 +1272,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="modify-routing-table-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1255,7 +1307,8 @@ X-Auth-Token: {tokenId}
 </details>
 
 
-### 라우팅 테이블에 인터넷 게이트웨이 연결하기
+<a id="associate-internet-gateway-with-routing-table"></a>
+### 라우팅 테이블에 인터넷 게이트웨이 연결하기 { #associate-internet-gateway-with-routing-table }
 
 라우팅 테이블에 인터넷 게이트웨이를 연결합니다.
 
@@ -1264,6 +1317,7 @@ PUT /v2.0/routingtables/{routingtableId}/attach_gateway
 X-Auth-Token: {tokenId}
 ```
 
+<a id="associate-internet-gateway-with-routing-table-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1284,6 +1338,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="associate-internet-gateway-with-routing-table-response"></a>
 #### 응답
 
 | 이름 | 종류   | 형식      | 설명 |
@@ -1359,7 +1414,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우팅 테이블의 인터넷 게이트웨이 연결 해제하기
+<a id="disassociate-internet-gateway-from-routing-table"></a>
+### 라우팅 테이블의 인터넷 게이트웨이 연결 해제하기 { #disassociate-internet-gateway-from-routing-table }
 
 라우팅 테이블과 연결된 인터넷 게이트웨이와의 연결을 해제합니다.
 
@@ -1368,6 +1424,7 @@ PUT /v2.0/routingtables/{routingtableId}/detach_gateway
 X-Auth-Token: {tokenId}
 ```
 
+<a id="disassociate-internet-gateway-from-routing-table-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1378,6 +1435,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 
 
+<a id="disassociate-internet-gateway-from-routing-table-response"></a>
 #### 응답
 | 이름 | 종류   | 형식      | 설명 |
 | --- |------|---------| --- |
@@ -1438,7 +1496,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우팅 테이블을 기본 라우팅 테이블로 지정하기
+<a id="designate-routing-table-as-default-routing-table"></a>
+### 라우팅 테이블을 기본 라우팅 테이블로 지정하기 { #designate-routing-table-as-default-routing-table }
 
 라우팅 테이블을 기본 라우팅 테이블로 지정합니다.
 
@@ -1447,6 +1506,7 @@ PUT /v2.0/routingtables/{routingtableId}/set_as_default
 X-Auth-Token: {tokenId}
 ```
 
+<a id="designate-routing-table-as-default-routing-table-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1457,6 +1517,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 
 
+<a id="designate-routing-table-as-default-routing-table-response"></a>
 #### 응답
 
 | 이름 | 종류   | 형식      | 설명 |
@@ -1533,7 +1594,8 @@ X-Auth-Token: {tokenId}
 </details>
 
 
-### 라우팅 테이블 삭제하기
+<a id="delete-routing-table"></a>
+### 라우팅 테이블 삭제하기 { #delete-routing-table }
 
 라우팅 테이블을 삭제합니다. 기본 라우팅 테이블로 지정된 라우팅 테이블은 삭제할 수 없으며, 이는 VPC 삭제 시 함께 삭제됩니다.
 
@@ -1542,6 +1604,7 @@ DELETE /v2.0/routingtables/{routingtableId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-routing-table-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1552,12 +1615,14 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 
 
+<a id="delete-routing-table-response"></a>
 #### 응답
 
 이 API는 응답 본문을 반환하지 않습니다.
 
 
-### 라우팅 테이블과 연관된 게이트웨이 정보 조회
+<a id="view-details-of-gateway-associatd-with-routing-table"></a>
+### 라우팅 테이블과 연관된 게이트웨이 정보 조회 { #view-details-of-gateway-associatd-with-routing-table }
 
 라우팅 테이블에 설정된 라우팅 정책을 통해 패킷이 도달할 수 있는 게이트웨이들의 정보를 반환합니다.
 
@@ -1566,6 +1631,7 @@ GET /v2.0/routingtables/{routingtableId}/related_gateways
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-details-of-gateway-associatd-with-routing-table-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1576,6 +1642,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 
 
+<a id="view-details-of-gateway-associatd-with-routing-table-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1624,8 +1691,10 @@ X-Auth-Token: {tokenId}
 </details>
 
 
-## 라우트
-### 라우트 목록 보기
+<a id="route"></a>
+## 라우트 { #route }
+<a id="view-routes"></a>
+### 라우트 목록 보기 { #view-routes }
 
 라우팅 테이블에 설정된 라우트 목록을 반환합니다.
 
@@ -1634,6 +1703,7 @@ GET /v2.0/routes
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-routes-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1648,6 +1718,7 @@ X-Auth-Token: {tokenId}
 | routingtable_id |  Query | String | - | 라우트가 설정된 라우팅 테이블의 ID|
 | gateway_id |  Query | String | - | 인터넷 게이트웨이 ID |
 
+<a id="view-routes-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1702,7 +1773,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우트 보기
+<a id="view-route"></a>
+### 라우트 보기 { #view-route }
 
 지정한 라우트를 조회합니다.
 
@@ -1711,6 +1783,7 @@ GET /v2.0/routes/{routeId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="view-route-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1720,6 +1793,7 @@ X-Auth-Token: {tokenId}
 | routeId | URL | UUID | O | 조회할 라우트 ID |
 | tokenId | Header | String | O | 토큰 ID |
 
+<a id="view-route-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1754,7 +1828,8 @@ X-Auth-Token: {tokenId}
 </details>
 
 
-### 라우트 생성하기
+<a id="create-route"></a>
+### 라우트 생성하기 { #create-route }
 
 라우팅 테이블에 신규 라우트를 추가합니다.
 
@@ -1763,6 +1838,7 @@ POST /v2.0/routes
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-route-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1790,6 +1866,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-route-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1822,7 +1899,8 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
-### 라우트 변경하기
+<a id="change-route"></a>
+### 라우트 변경하기 { #change-route }
 
 지정한 라우트를 변경합니다. 변경 가능한 항목은 `cidr`, `gateway`, `description`이며, `gateway` 항목이 "local" 이거나, 인터넷 게이트웨이 연결로 인해 자동으로 추가된 라우트(`gateway_id` 값 존재)는 변경할 수 없습니다.
 
@@ -1831,6 +1909,7 @@ PUT /v2.0/routes/{routeId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="change-route-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -1858,6 +1937,7 @@ X-Auth-Token: {tokenId}
 </details>
 
 
+<a id="change-route-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -1891,7 +1971,8 @@ X-Auth-Token: {tokenId}
 </details>
 
 
-### 라우트 삭제하기
+<a id="delete-route"></a>
+### 라우트 삭제하기 { #delete-route }
 
 지정한 라우트를 삭제합니다. `gateway` 항목이 "local" 이거나, 인터넷 게이트웨이 연결로 인해 자동으로 추가된 라우트(`gateway_id` 값 존재)는 삭제할 수 없습니다.
 
@@ -1900,6 +1981,7 @@ DELETE /v2.0/routes/{routeId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-route-request"></a>
 #### 요청
 
 이 API는 요청 본문을 요구하지 않습니다.
@@ -1910,6 +1992,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 
 
+<a id="delete-route-response"></a>
 #### 응답
 
 이 API는 응답 본문을 반환하지 않습니다.
