@@ -1,4 +1,5 @@
-## Network > VPC > OpenStack 호환 API 가이드
+<a id="network-vpc-openstack-compatible-api-guide"></a>
+## Network > VPC > OpenStack 호환 API 가이드 { #network-vpc-openstack-compatible-api-guide }
 
 NHN Cloud Network 서비스는 OpenStack neutron API와 호환되는 API를 제공합니다.
 제공하는 OpenStack 호환 API는 다음과 같습니다.
@@ -23,14 +24,17 @@ OpenStack 호환 API는 `network` 타입 엔드포인트를 이용합니다. 정
 | network | 한국(판교) 리전<br>한국(평촌) 리전<br>한국(광주) 리전<br>일본(도쿄) 리전 | https://kr1-api-network-infrastructure.nhncloudservice.com<br>https://kr2-api-network-infrastructure.nhncloudservice.com<br>https://kr3-api-network-infrastructure.nhncloudservice.com<br>https://jp1-api-network-infrastructure.nhncloudservice.com |
 
 
-## 네트워크
-### 네트워크 목록 보기
+<a id="network"></a>
+## 네트워크 { #network }
+<a id="list-networks"></a>
+### 네트워크 목록 보기 { #list-networks }
 사용 가능한 네트워크 목록을 반환합니다.
 ```
 GET /v2.0/networks
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-networks-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -47,6 +51,7 @@ X-Auth-Token: {tokenId}
 | sort_key | Query | String | - | 조회할 네트워크의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬 |
 | fields | Query | String | - | 조회할 네트워크의 필드 이름<br>예: `fields=id&fields=name` |
 
+<a id="list-networks-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -108,14 +113,17 @@ X-Auth-Token: {tokenId}
 
 ---
 
-## 서브넷
-### 서브넷 목록 보기
+<a id="subnet"></a>
+## 서브넷 { #subnet }
+<a id="list-subnets"></a>
+### 서브넷 목록 보기 { #list-subnets }
 사용 가능한 서브넷 목록을 반환합니다.
 ```
 GET /v2.0/subnets
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-subnets-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -132,6 +140,7 @@ X-Auth-Token: {tokenId}
 | sort_key | Query | String | - | 조회할 서브넷의 정렬 키<br>`sort_dir`에서 지정한 방향대로 정렬 |
 | fields | Query | String | - | 조회할 서브넷의 필드 이름<br>예: `fields=id&fields=name` |
 
+<a id="list-subnets-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -193,14 +202,17 @@ X-Auth-Token: {tokenId}
 
 ---
 
-## 포트
-### 포트 목록 보기
+<a id="port"></a>
+## 포트 { #port }
+<a id="list-ports"></a>
+### 포트 목록 보기 { #list-ports }
 포트 목록을 반환합니다.
 ```
 GET /v2.0/ports
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-ports-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -219,6 +231,7 @@ X-Auth-Token: {tokenId}
 | device_id | Query | UUID | - | 조회할 포트를 사용하는 리소스 ID |
 | fields | Query | String | - | 조회할 포트의 필드 이름<br>예: `fields=id&fields=name` |
 
+<a id="list-ports-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -281,13 +294,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### 포트 보기
+<a id="get-port"></a>
+### 포트 보기 { #get-port }
 포트를 조회합니다.
 ```
 GET /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-port-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -297,6 +312,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | 토큰 ID |
 | fields | Query | String | - | 조회할 포트의 필드 이름<br>예: `fields=id&fields=name` |
 
+<a id="get-port-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -358,13 +374,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### 포트 생성하기
+<a id="create-port"></a>
+### 포트 생성하기 { #create-port }
 새로운 포트를 생성합니다. 생성한 포트는 인스턴스 생성 시 활용할 수 있습니다.
 ```
 POST /v2.0/ports
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-port-request"></a>
 #### 요청
 
 | 이름 | 종류 | 형식 | 필수 | 설명 |
@@ -407,6 +425,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-port-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -464,13 +483,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### 포트 변경하기
+<a id="change-port"></a>
+### 포트 변경하기 { #change-port }
 지정한 포트의 속성을 변경합니다.
 ```
 PUT /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="change-port-request"></a>
 #### 요청
 | 이름 | 종류 | 형식 | 필수 | 설명 |
 |---|---|---|---|---|
@@ -509,6 +530,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="change-port-response"></a>
 #### 응답
 
 | 이름 | 종류 | 형식 | 설명 |
@@ -567,13 +589,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### 포트 삭제하기
+<a id="delete-port"></a>
+### 포트 삭제하기 { #delete-port }
 지정한 포트를 삭제합니다.
 ```
 DELETE /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-port-request"></a>
 #### 요청
 이 API는 요청 본문을 요구하지 않습니다.
 
@@ -582,6 +606,7 @@ X-Auth-Token: {tokenId}
 | portId | URL | UUID | O | 포트 ID |
 | tokenId | Header | String | O | 토큰 ID |
 
+<a id="delete-port-response"></a>
 #### 응답
 이 API는 응답 본문을 반환하지 않습니다.
 

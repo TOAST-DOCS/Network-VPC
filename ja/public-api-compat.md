@@ -1,4 +1,5 @@
-## Network > VPC > Openstack互換APIガイド
+<a id="network-vpc-openstack-compatible-api-guide"></a>
+## Network > VPC > Openstack互換APIガイド { #network-vpc-openstack-compatible-api-guide }
 
 NHN Cloud NetworkサービスはOpenStack neutron APIと互換性のあるAPIを提供します。 
 提供するOpenstack互換APIは次のとおりです。
@@ -23,14 +24,17 @@ Openstack互換APIは`network`タイプエンドポイントを利用します�
 | network | 韓国(パンギョ)リージョン<br>韓国(ピョンチョン)リージョン<br>韓国(光州)リージョン<br>日本(東京)リージョン | https://kr1-api-network-infrastructure.nhncloudservice.com<br>https://kr2-api-network-infrastructure.nhncloudservice.com<br>https://kr3-api-network-infrastructure.nhncloudservice.com<br>https://jp1-api-network-infrastructure.nhncloudservice.com |
 
 
-## ネットワーク
-### ネットワークリスト表示
+<a id="network"></a>
+## ネットワーク { #network }
+<a id="list-networks"></a>
+### ネットワークリスト表示 { #list-networks }
 使用可能なネットワークリストを返します。
 ```
 GET /v2.0/networks
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-networks-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -47,6 +51,7 @@ X-Auth-Token: {tokenId}
 | sort_key | Query | String | - | 照会するネットワークのソートキー<br>`sort_dir`で指定した方向通りにソート |
 | fields | Query | String | - | 照会するネットワークのフィールド名<br>例: `fields=id&fields=name` |
 
+<a id="list-networks-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -108,14 +113,17 @@ X-Auth-Token: {tokenId}
 
 ---
 
-## サブネット
-### サブネットリスト表示
+<a id="subnet"></a>
+## サブネット { #subnet }
+<a id="list-subnets"></a>
+### サブネットリスト表示 { #list-subnets }
 使用可能なサブネットリストを返します。
 ```
 GET /v2.0/subnets
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-subnets-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -132,6 +140,7 @@ X-Auth-Token: {tokenId}
 | sort_key | Query | String | - | 照会するサブネットのソートキー<br>`sort_dir`で指定した方向通りにソート |
 | fields | Query | String | - | 照会するサブネットのフィールド名<br>例: `fields=id&fields=name` |
 
+<a id="list-subnets-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -193,14 +202,17 @@ X-Auth-Token: {tokenId}
 
 ---
 
-## ポート
-### ポートリスト表示
+<a id="port"></a>
+## ポート { #port }
+<a id="list-ports"></a>
+### ポートリスト表示 { #list-ports }
 ポートリストを返します。
 ```
 GET /v2.0/ports
 X-Auth-Token: {tokenId}
 ```
 
+<a id="list-ports-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -219,6 +231,7 @@ X-Auth-Token: {tokenId}
 | device_id | Query | UUID | - | 照会するポートを使用するリソースID |
 | fields | Query | String | - | 照会するポートのフィールド名<br>例: `fields=id&fields=name` |
 
+<a id="list-ports-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -281,13 +294,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### ポート表示
+<a id="get-port"></a>
+### ポート表示 { #get-port }
 ポートを照会します。
 ```
 GET /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="get-port-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -297,6 +312,7 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | O | トークンID |
 | fields | Query | String | - | 照会するポートのフィールド名<br>例: `fields=id&fields=name` |
 
+<a id="get-port-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -358,13 +374,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### ポートを作成する
+<a id="create-port"></a>
+### ポートを作成する { #create-port }
 新しいポートを作成します。作成したポートはインスタンス作成時に活用できます。
 ```
 POST /v2.0/ports
 X-Auth-Token: {tokenId}
 ```
 
+<a id="create-port-request"></a>
 #### リクエスト
 
 | 名前 | 種類 | 形式 | 必須 | 説明 |
@@ -407,6 +425,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="create-port-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -464,13 +483,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### ポートを変更する
+<a id="change-port"></a>
+### ポートを変更する { #change-port }
 指定したポートのプロパティを変更します。
 ```
 PUT /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="change-port-request"></a>
 #### リクエスト
 | 名前 | 種類 | 形式 | 必須 | 説明 |
 |---|---|---|---|---|
@@ -509,6 +530,7 @@ X-Auth-Token: {tokenId}
 </p>
 </details>
 
+<a id="change-port-response"></a>
 #### レスポンス
 
 | 名前 | 種類 | 形式 | 説明 |
@@ -567,13 +589,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-### ポートを削除する
+<a id="delete-port"></a>
+### ポートを削除する { #delete-port }
 指定したポートを削除します。
 ```
 DELETE /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
+<a id="delete-port-request"></a>
 #### リクエスト
 このAPIはリクエスト本文を要求しません。
 
@@ -582,6 +606,7 @@ X-Auth-Token: {tokenId}
 | portId | URL | UUID | O | ポートID |
 | tokenId | Header | String | O | トークンID |
 
+<a id="delete-port-response"></a>
 #### レスポンス
 このAPIはレスポンス本文を返しません。
 

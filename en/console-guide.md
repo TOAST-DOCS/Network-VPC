@@ -1,14 +1,15 @@
-## Network > VPC > Console Guide
+<a id="network-vpc-console-guide"></a>
+## Network > VPC > Console Guide { #network-vpc-console-guide }
 
 This document describes what you need to do when working with VPCs in the console.
 
 <a id="vpc"></a>
-## VPC
+## VPC { #vpc }
 
 Since a VPC can have multiple subnets, a sufficiently large network must be configured when divided subnets are used. A VPC network can be described by using [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). All VPCs must be located in the three address ranges shown below, where a [private network](https://en.wikipedia.org/wiki/Private_network) can be configured, and link-local addresses cannot be used. In addition, you must specify a network area that is larger than 24bit-256.
 
 <a id="private-network"></a>
-### Private Network 
+### Private Network { #private-network }
 
 RFC1918 | IP Address Range | Number of Available Addresses 
 -------- | ---------- | -----------------
@@ -17,12 +18,12 @@ RFC1918 | IP Address Range | Number of Available Addresses
 16bit block | 192.168.0.0/16 | 65,536
 
 <a id="link-local-address"></a>
-### Link-Local Addresses 
+### Link-Local Addresses { #link-local-address }
 
 You cannot use 65,536 IP addresses that are included in 169.254.0.0/16. 
 
 <a id="examples"></a>
-### Examples 
+### Examples { #examples }
 
 Example | Availability 
 -------- | ---------- 
@@ -105,7 +106,7 @@ VPCs can be deleted only when subnets are deleted altogether, and in such case, 
 > * If you have restarted an instance for the application of private DNS port, you do not need to restart the instance if you subsequently connect another zone to that VPC or change the private IP DNS settings.
     
 <a id="subnet"></a>
-## Subnet
+## Subnet { #subnet }
 
 To attach resources to a virtual network (VPC) and give them IPs, you need to create one or more subnets. 
 
@@ -119,7 +120,7 @@ By default, resources within all subnets of the same VPC can be accessed through
 When you select a subnet from the subnet list, you'll see the following information at the bottom of the list
 
 <a id="subnet-basic-info"></a>
-### Subnet Basic Information
+### Subnet Basic Information { #subnet-basic-info }
 You can see basic information such as the subnet name, UUID, CIDR, and creation date, as well as the subnet's gateway IP and the number of available IPs that can be assigned to resources.
 > [Note]
 > The number of free IPs on a subnet is the number of IPs already assigned to resources on the subnet, excluding the IPs below.
@@ -133,11 +134,11 @@ You can see basic information such as the subnet name, UUID, CIDR, and creation 
 > The IP for the SNAT that connects to the Internet gateway is assigned when the routing table to which the subnet is connected has an Internet gateway connection, and might be assigned an IP other than `192.168.0.3`, depending on when the routing table and the Internet gateway were connected.
 
 <a id="subnet-connection-info"></a>
-### Subnet Attachment Information
+### Subnet Attachment Information { #subnet-connection-info }
 A list of resources that have been assigned IPs on the subnet. You can see the resource's type, ID, assigned IP, and if the resource has a floating IP associated with it, its floating IP.
 
 <a id="subnet-static-route"></a>
-### Subnet Static Route
+### Subnet Static Route { #subnet-static-route }
 By using a subnet's **Static Route** setting, it is possible to pass the routing rules that instances in the subnet will set in the routing table within the instances at boot time.
 
 * The routing rules registered in **Static Route** are sent by being included in the ‘classless-static-routes’ option of the response to the DHCP request requested by the instance. The DHCP client running in the instance registers the content of this option in the routing table.
@@ -158,7 +159,7 @@ By using a subnet's **Static Route** setting, it is possible to pass the routing
 > * For technical details of 'classless-static-routes' option, refer to [RFC 3442](https://tools.ietf.org/html/rfc3442).
 
 <a id="subnet-create"></a>
-### Create Subnet
+### Create Subnet { #subnet-create }
 Enter the following information to create a subnet
 
 * Name: Enter a name for the subnet.
@@ -174,21 +175,21 @@ Enter the following information to create a subnet
 > If you need to create more than 11 subnets within a single VPC, please contact the [Customer Center](https://www.nhncloud.com/kr/support/inquiry). 
 
 <a id="subnet-modify"></a>
-### Modify Subnet
+### Modify Subnet { #subnet-modify }
 You can rename the subnet. 
 
 <a id="subnet-delete"></a>
-### Delete Subnet
+### Delete Subnet { #subnet-delete }
 Deletes the selected subnet. You can delete a subnet only if it does not contain any resources, such as instances or load balancers, that have IP assignments from the subnet. 
 
 <a id="routing-table-connect"></a>
-### Attach Routing table
+### Attach Routing table { #routing-table-connect }
 'Explicitly' attach the selected subnet to the selected routing table.
 
 When you create a subnet, it is 'implicitly' attached to the VPC's default routing table, which you can 'explicitly' attach to the default routing table or to another routing table using the Attach Routing Table feature.
 
 <a id="routing-table-disconnect"></a>
-### Detach Routing Table
+### Detach Routing Table { #routing-table-disconnect }
 If the subnet and routing table are 'explicitly' attached, detach them.
 
 Subnets that are explicitly detached from the routing table are 'implicitly' attached back to the VPC's **default routing table**.
@@ -199,7 +200,7 @@ Subnets that are explicitly detached from the routing table are 'implicitly' att
 > * Explicitly attached: Subnets are explicitly attached to a routing table, using the **Attach Routing Table** feature. All attachments are explicit unless you attach to the default routing table, in which case specifying the default routing table changes the implicit attachment state to explicit. In this case, even if you change the default routing table, the subnet retains its association with the existing routing table.
 
 <a id="routing-table"></a>
-## Routing Table 
+## Routing Table { #routing-table }
 
 A routing table is created along with VPC, and is also deleted along with a deletion of VPC. Multiple routing tables can be created within a VPC, and can be deleted explicitly if they are not the default routing table. Subnets must be associated with at least one routing table, and multiple routing tables cannot share an internet gateway.   
 
