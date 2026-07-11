@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bfcd6718aae8 -->
+
 <a id="network-vpc-openstack-compatible-api-guide"></a>
 ## Network > VPC > Openstack Compatible API Guide { #network-vpc-openstack-compatible-api-guide }
 
@@ -586,32 +588,15 @@ X-Auth-Token: {tokenId}
 
 ---
 
-<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Duplicate 'Delete Port' heading (partial, no Response sibling); the canonical ko k23 match was assigned to t25 which has both Request and Response children.) -->
 <a id="delete-port"></a>
-### Delete a port { #delete-port }
-
-```
-
-```
-
-<!-- pre-align: ko에 대응 섹션 없음 — 검토 필요 (Request child of the duplicate/extra t23 'Delete a port' heading; has no ko counterpart beyond k24 already matched to t26.) -->
-<a id="delete-port-request"></a>
-#### Request
-
-
-| Name | Type | Format | Required | Description |
-|---|---|---|---|---|
-|  |  | UUID | O |  |
-| tokenId | Header | String | O | Token ID |
-
-### Delete Port
+### Delete Port { #delete-port }
 Deletes a specified port.
 ```
 DELETE /v2.0/ports/{portId}
 X-Auth-Token: {tokenId}
 ```
 
-<a id="delete-port-response"></a>
+<a id="delete-port-request"></a>
 #### Request
 This API does not require a request body.
 
@@ -620,6 +605,7 @@ This API does not require a request body.
 | portId | URL | UUID | O | Port ID |
 | tokenId | Header | String | O | Token ID |
 
+<a id="delete-port-response"></a>
 #### Response
 This API does not return a response body.
 

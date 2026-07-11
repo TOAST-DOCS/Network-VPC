@@ -1,3 +1,5 @@
+<!-- pre-align:aligned sig=bfcd6718aae8 -->
+
 <a id="network-vpc-openstack-compatible-api-guide"></a>
 ## Network > VPC > OpenStack 호환 API 가이드 { #network-vpc-openstack-compatible-api-guide }
 
