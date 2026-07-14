@@ -1,8 +1,12 @@
-## Network > VPC > API Guide
+<!-- pre-align:aligned sig=943fbab141f1 -->
+
+<a id="network-vpc-api-guide"></a>
+## Network > VPC > API Guide { #network-vpc-api-guide }
 
 API is currently available only in the Korea region.
 
-## Prerequisites
+<a id="prerequisites"></a>
+## Prerequisites { #prerequisites }
 
 Using a network VPC API requires an appkey and a token. Get an appkey and a token by using [API Endpoint URL](/Compute/Instance/en/api-guide/#api-endpoint-url) and [Token API](/Compute/Instance/en/api-guide/#api): include the appkey to API Endpoint URL and the token to the Request Body.
 
@@ -11,12 +15,15 @@ For example, List Security Groups must be requested to the following URL:
 	GET https://api-compute.nhncloudservice.com/compute/v1.0/appkeys/{appkey}/security-groups?id={securityGroupId}
 
 
-## Security Group API
+<a id="security-group-api"></a>
+## Security Group API { #security-group-api }
 Create, delete, list and update security groups are available. Register/unregister security groups to instances is provided by [Instance API](/Compute/Instance/en/api-guide/).
 
-### List Security Groups
+<a id="list-security-groups"></a>
+### List Security Groups { #list-security-groups }
 List information of accessible security groups.
 
+<a id="list-security-groups-method-url"></a>
 #### Method, URL
 ```
 GET /v1.0/appkeys/{appkey}/security-groups?id={securityGroupId}
@@ -28,9 +35,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - | Token ID |
 | securityGroupId | Query | String | O | Security Group ID to list: if left empty, list information of all security groups. |
 
+<a id="list-security-groups-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="list-security-groups-response-body"></a>
 #### Response Body
 ```json
 {
@@ -70,9 +79,11 @@ This API does not require a request body.
 | Name | Body | String | Name of a security group |
 | securityGroupRules | Body | List | List of security group rules, in reference of [Security Group Rules API](#api_1) |
 
-### Create Security Groups
+<a id="create-security-groups"></a>
+### Create Security Groups { #create-security-groups }
 Create a new security group.
 
+<a id="create-security-groups-method-url"></a>
 #### Method, URL
 ```
 POST /v1.0/appkeys/{appkey}/security-groups
@@ -84,6 +95,7 @@ Content-Type: application/json;charset=UTF-8
 | --- | --- | --- | --- | --- |
 | tokenId | Header | String | - | Token ID |
 
+<a id="create-security-groups-request-body"></a>
 #### Request Body
 ```json
 {
@@ -99,6 +111,7 @@ Content-Type: application/json;charset=UTF-8
 | Name | Body | String | - |Name of a security group |
 | Description | Body | String | O | Description of a security group |
 
+<a id="create-security-groups-response-body"></a>
 #### Response Body
 ```json
 {
@@ -136,9 +149,11 @@ Content-Type: application/json;charset=UTF-8
 | Name | Body | String | Name of a security group |
 | securityGroupRules | Body | List | List of security group rules, in reference of [Security Group Rules API](#api_1) |
 
-### Modify Security Groups
+<a id="modify-security-groups"></a>
+### Modify Security Groups { #modify-security-groups }
 Modify name and description of a security group.
 
+<a id="modify-security-groups-method-url"></a>
 #### Method, URL
 ```
 PUT /v1.0/appkeys/{appkey}/security-groups/{securityGroupId}
@@ -151,6 +166,7 @@ Content-Type: application/json;charset=UTF-8
 | tokenId | Header | String | - | Token ID |
 | securityGroupId | Path | String | - | Security group ID to modify |
 
+<a id="modify-security-groups-request-body"></a>
 #### Request Body
 ```json
 {
@@ -166,6 +182,7 @@ Content-Type: application/json;charset=UTF-8
 | Name | Body | String | - | Name of a security group |
 | Description | Body | String | O | Description of a security group |
 
+<a id="modify-security-groups-response-body"></a>
 #### Response Body
 ```json
 {
@@ -188,9 +205,11 @@ Content-Type: application/json;charset=UTF-8
 | Name | Body | String | Name of a security group |
 | Description | Body | String | Description of a security group |
 
-### Delete Security Groups
+<a id="delete-security-groups"></a>
+### Delete Security Groups { #delete-security-groups }
 Delete a specified security group.
 
+<a id="delete-security-groups-method-url"></a>
 #### Method, URL
 ```
 DELETE /v1.0/appkeys/{appkey}/security-groups?id={securityGroupId}
@@ -202,9 +221,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - | Token ID |
 | securityGroupId | Query | String | - | Security group ID to delete |
 
+<a id="delete-security-groups-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="delete-security-groups-response-body"></a>
 #### Response Body
 ```json
 {
@@ -217,11 +238,14 @@ This API does not require a request body.
 ```
 
 
-## Security Group Rules API
+<a id="security-group-rules-api"></a>
+## Security Group Rules API { #security-group-rules-api }
 Add/Delete and List security group rules.  
 
-### List Security Group Rules
+<a id="list-security-group-rules"></a>
+### List Security Group Rules { #list-security-group-rules }
 List information of all accessible security group rules.  
+<a id="list-security-group-rules-method-url"></a>
 #### Method, URL
 ```
 GET /v1.0/appkeys/{appkey}/security-group-rules?id={securityGroupRuleId}
@@ -233,9 +257,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - | Token ID |
 | securityGroupRuleId | Query | String | O | ID of a security group rule to retrieve: if left empty, retrieve information of all security group rules. |
 
+<a id="list-security-group-rules-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="list-security-group-rules-response-body"></a>
 #### Response Body
 ```json
 {
@@ -272,8 +298,10 @@ This API does not require a request body.
 | Remote IP Prefix | Body | String | Prefix of a remote IP where rules are applied |
 | Security Group ID | Body | String | ID of a security group where rules are applied |
 
-### Create Security Group Rules
+<a id="create-security-group-rules"></a>
+### Create Security Group Rules { #create-security-group-rules }
 Create a new security group rule.
+<a id="create-security-group-rules-method-url"></a>
 #### Method, URL
 ```
 POST /v1.0/appkeys/{appkey}/security-group-rules
@@ -285,6 +313,7 @@ Content-Type: application/json;charset=UTF-8
 | --- | --- | --- | --- | --- |
 | tokenId | Header | String | - | Token ID |
 
+<a id="create-security-group-rules-request-body"></a>
 #### Request Body
 ```json
 {
@@ -350,8 +379,10 @@ Content-Type: application/json;charset=UTF-8
 | Remote IP Prefix | Body | String | Prefix of a remote IP where rules are applied |
 | Security Group ID | Body | String | ID of a security group where rules are applied |
 
-### Delete Security Group Rules
+<a id="delete-security-group-rules"></a>
+### Delete Security Group Rules { #delete-security-group-rules }
 Delete specified security group rules.
+<a id="delete-security-group-rules-method-url"></a>
 #### Method, URL
 ```
 DELETE /v1.0/appkeys/{appkey}/security-group-rules?id={securityGroupRuleId}
@@ -363,9 +394,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - | Token ID |
 | securityGroupRuleId | Query | String | - | ID of a security group rule to delete |
 
+<a id="delete-security-group-rules-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="delete-security-group-rules-response-body"></a>
 #### Response Body
 ```json
 {
@@ -377,10 +410,12 @@ This API does not require a request body.
 }
 ```
 
-## Network API
+<a id="network-api"></a>
+## Network API { #network-api }
 Get network information which can be accessed from an instance.
 
-### Network Status
+<a id="network-status"></a>
+### Network Status { #network-status }
 Networks have the following status values:
 
 | Status | Description |
@@ -390,9 +425,11 @@ Networks have the following status values:
 | DOWN | Network is inactive |
 | ERROR | Error has occurred |
 
-### Get Network Information
+<a id="get-network-information"></a>
+### Get Network Information { #get-network-information }
 Get information of an accessible network.
 
+<a id="get-network-information-method-url"></a>
 #### Method, URL
 ```
 GET /v1.0/appkeys/{appkey}/networks?id={networkId}
@@ -404,9 +441,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - | Token ID |
 | networkId | Query | String | O | Network ID to retrieve: if left empty, retrieve information of all networks. |
 
+<a id="get-network-information-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="get-network-information-response-body"></a>
 #### Response Body
 ```json
 {
@@ -439,9 +478,12 @@ This API does not require a request body.
 | Network Status | Body | String | Network status: ACTIVE, DOWN, BUILD, or ERROR |
 | Subnet ID | Body | String | Subnet ID |
 
-## Subnet API
-### Get Subnet Information
+<a id="subnet-api"></a>
+## Subnet API { #subnet-api }
+<a id="get-subnet-information"></a>
+### Get Subnet Information { #get-subnet-information }
 Get information of an accessible subnet.
+<a id="get-subnet-information-method-url"></a>
 #### Method, URL
 ```
 GET /v1.0/appkeys/{appkey}/subnets
@@ -452,9 +494,11 @@ X-Auth-Token: {tokenId}
 | -- | -- | -- | -- | -- |
 | tokenId | Header | String | - | Token ID |
 
+<a id="get-subnet-information-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="get-subnet-information-response-body"></a>
 #### Response Body
 ```json
 {
@@ -495,10 +539,12 @@ This API does not require a request body.
 | Subnet Name | Body | Integer | Subnet name |
 | Network ID | Body | Integer | Network ID where a subnet belongs to |
 
-## Floating IP API
+<a id="floating-ip-api"></a>
+## Floating IP API { #floating-ip-api }
 Create, Delete, and Retrieve Floating IPs.
 
-### Floating IP Status
+<a id="floating-ip-status"></a>
+### Floating IP Status { #floating-ip-status }
 Floating IPs have the following status values:
 
 | Status | Description |
@@ -508,9 +554,11 @@ Floating IPs have the following status values:
 | ERROR | Error has occurred |
 
 
-### List Pool of Floating IPs
+<a id="list-pool-of-floating-ips"></a>
+### List Pool of Floating IPs { #list-pool-of-floating-ips }
 List the pool of floating IPs.
 
+<a id="list-pool-of-floating-ips-method-url"></a>
 #### Method, URL
 ```
 GET /v1.0/appkeys/{appkey}/floating-ip-pools
@@ -520,9 +568,11 @@ X-Auth-Token: {tokenId}
 |--|--|--|--|--|
 | tokenId | Header | String | - | Token ID |
 
+<a id="list-pool-of-floating-ips-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="list-pool-of-floating-ips-response-body"></a>
 #### Response Body
 ```json
 {
@@ -545,8 +595,10 @@ This API does not require a request body.
 | Pool Name | Body | String | Pool name of a floating IP |
 
 
-### Get Floating IP
+<a id="get-floating-ip"></a>
+### Get Floating IP { #get-floating-ip }
 Get information of an available or in-use floating IP.
+<a id="get-floating-ip-method-url"></a>
 #### Method, URL
 ```
 GET /v1.0/appkeys/{appkey}/floating-ips?id={floatingIpId}
@@ -558,9 +610,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - |Token ID |
 | floatingIpId | Query | String | O | ID of a floating IP to retrieve: if left empty, retrieve information of all floating IPs. |
 
+<a id="get-floating-ip-request-body"></a>
 #### Request Body
 This API does not require a request body.
 
+<a id="get-floating-ip-response-body"></a>
 #### Response Body
 ```json
 {
@@ -597,8 +651,10 @@ This API does not require a request body.
 | Pool Name | Body | String | Name of a pool where a floating IP belongs to |
 | Status | Body | String | Status of a floating IP |
 
-### Create Floating IPs
+<a id="create-floating-ips"></a>
+### Create Floating IPs { #create-floating-ips }
 Create a floating IP.
+<a id="create-floating-ips-method-url"></a>
 #### Method, URL
 ```
 POST /v1.0/appkeys/{appkey}/floating-ips
@@ -609,6 +665,7 @@ X-Auth-Token: {tokenId}
 |--|--|--|--|--|
 | tokenId | Header | String | - | Token ID |
 
+<a id="create-floating-ips-request-body"></a>
 #### Request Body
 ```json
 {
@@ -622,6 +679,7 @@ X-Auth-Token: {tokenId}
 |--|--|--|--|--|
 |  Pool ID | Body | String | - | Pool identifier of a floating IP |
 
+<a id="create-floating-ips-response-body"></a>
 #### Response Body
 ```json
 {
@@ -650,8 +708,10 @@ X-Auth-Token: {tokenId}
 | Pool Name | Body | String | Name of a pool to where a floating IP belongs |
 | Status | Body | String | Status of a floating IP |
 
-### Delete Floating IP
+<a id="delete-floating-ip"></a>
+### Delete Floating IP { #delete-floating-ip }
 Delete a designated floating IP. For an active floating IP, disassociate first and delete.  
+<a id="delete-floating-ip-method-url"></a>
 #### Method, URL
 ```
 DELETE /v1.0/appkeys/{appkey}/floating-ips?id={floatingIpId}
@@ -663,9 +723,11 @@ X-Auth-Token: {tokenId}
 | tokenId | Header | String | - | Token ID |
 | floatingIpId | Path | String | - | ID of a floating IP to delete |
 
+<a id="delete-floating-ip-request-body"></a>
 #### Request Body
 This API does not require a  request body.
 
+<a id="delete-floating-ip-response-body"></a>
 #### Response Body
 
 ```json
