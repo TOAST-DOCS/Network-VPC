@@ -250,6 +250,7 @@ This API does not require a request body.
 | ports.device_owner | Body | String | Resource type using port |
 | ports.device_id | Body | UUID | Resource ID of the resource using the port|
 | ports.mac_address | Body | String | MAC address of port |
+| ports.fixed_ips | Body | Array | List of fixed IPs of port |
 | ports.fixed_ips.subnet_id | Body | UUID | Subnet ID to which the fixed IP belongs |
 | ports.fixed_ips.ip_address | Body | String | Fixed IP address |
 | ports.port_security_enabled | Body | Boolean | Security status of the port<br>If enabled, you can set security group, allowed address pairs |
@@ -330,6 +331,7 @@ This API does not require a request body.
 | port.device_owner | Body | String | Resource type using port |
 | port.device_id | Body | UUID | Resource ID using the port |
 | port.mac_address | Body | String | MAC address of port |
+| port.fixed_ips | Body | Array | List of fixed IPs of port |
 | port.fixed_ips.subnet_id | Body | UUID | Subnet ID to which the fixed IP belongs |
 | port.fixed_ips.ip_address | Body | String | Fixed IP address |
 | port.port_security_enabled | Body | Boolean | Port security status<br>If enabled, you can set security groups and allowed address pairs |
@@ -391,6 +393,7 @@ X-Auth-Token: {tokenId}
 | port.name | Body | String | - | Port name |
 | port.network_id | Body | UUID | O | Network ID of port |
 | port.admin_state_up | Body | Boolean | - | Admin control status of port. Default `true` |
+| port.fixed_ips | Body | Array | - | List of fixed IPs of port |
 | port.fixed_ips.subnet_id | Body | UUID | - | Subnet ID to assign a fixed IP to |
 | port.fixed_ips.ip_address | Body | String | - | Fixed IP address|
 | port.port_security_enabled | Body | Boolean | - | Whether to enable port security. Default `true` | 

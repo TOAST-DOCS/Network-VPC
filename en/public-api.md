@@ -1878,6 +1878,7 @@ X-Auth-Token: {tokenId}
 | route.cidr | Body | String | Route destination CIDR | 
 | route.mask | Body | Integer | Netmask of route destination CIDR |
 | route.gateway | Body | String | Route gateway IP |
+| route.description | Body | String | Route description |
 | route.tenant_id | Body | String | Tenant ID that route belongs to |
 
 <details><summary>Example</summary>

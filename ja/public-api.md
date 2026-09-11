@@ -215,6 +215,7 @@ X-Auth-Token: {tokenId}
 | vpc.name                | Body   | String | O   | VPCの名前                            |
 | vpc.cidrv4              | Body   | String | O   | VPC IP帯域                         |
 | vpc.tenant_id           | Body   | UUID   |     | VPCのtenant ID                       |
+| vpc.external_network_id | Body   | UUID   |     | VPCに接続されるExternal Network ID         |
 
 
 <details><summary>例</summary>
@@ -1805,6 +1806,7 @@ X-Auth-Token: {tokenId}
 | route.mask | Body | Integer | ルート目的地CIDRのネットマスク |
 | route.gateway | Body | String | ルートゲートウェイIP。ローカルルートの場合は"local" |
 | route.gateway_id | Body | UUID | ルーティングテーブルにインターネットゲートウェイを接続して自動的に作成されたルートの場合、インターネットゲートウェイのID |
+| route.description | Body | String | ルートの説明 |
 | route.tenant_id | Body | String | ルートが属するテナントID |
 
 <details><summary>例</summary>
