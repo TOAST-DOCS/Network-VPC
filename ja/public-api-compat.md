@@ -405,7 +405,7 @@ X-Auth-Token: {tokenId}
 | port.device_owner | Body | String | - | ポートを使用するリソースの種類 |
 | port.device_id | Body | UUID | - | ポートを使用するリソースID。仮想IPとして使用する場合は`network:virtual_ip`に指定 |
 
-!!! tip 「ポイント」
+!!! tip "ポイント"
     セキュリティ及び運用ポリシーにより、以下の設定が制限されます。
     * **fixed_ips**: 単一ポートに複数の`subnet_id`を重複して含めることはできません。
     * **allowed_address_pairs(IP)**: `ip_address`設定時、`/0`プレフィックス(例: 0.0.0.0/0)を含むCIDRの入力は制限されます。
@@ -511,7 +511,7 @@ X-Auth-Token: {tokenId}
 | port.allowed_address_pairs.ip_address | Body | String | - | 許可するIPアドレス |
 | port.extra_dhcp_opts | Body | Array | - | 追加DHCPオプション |
 
-!!! tip 「ポイント」
+!!! tip "ポイント"
     セキュリティ及び運用ポリシーにより、以下の設定が制限されます。
     * **fixed_ips**: 単一ポートに複数の`subnet_id`を重複して含めることはできません。
     * **allowed_address_pairs(IP)**: `ip_address`設定時、`/0`プレフィックス(例: 0.0.0.0/0)を含むCIDRの入力は制限されます。
