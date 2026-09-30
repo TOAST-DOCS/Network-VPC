@@ -77,7 +77,7 @@ X-Auth-Token: {tokenId}
 | Description | Body | String | 보안 그룹 설명 |
 | Security Group ID | Body | String | 보안 그룹 ID |
 | Name | Body | String | 보안 그룹 이름 |
-| securityGroupRules | Body | List | 보안 그룹 규칙 목록, [보안 그룹 규칙 API](#api_1) 참조 |
+| securityGroupRules | Body | List | 보안 그룹 규칙 목록, [보안 그룹 규칙 API](#security-group-rules-api) 참조 |
 
 <a id="create-security-groups"></a>
 ### 보안 그룹 생성 { #create-security-groups }
@@ -147,7 +147,7 @@ Content-Type: application/json;charset=UTF-8
 | Description | Body | String | 보안 그룹 설명 |
 | Security Group ID | Body | String | 보안 그룹 ID |
 | Name | Body | String | 보안 그룹 이름 |
-| securityGroupRules | Body | List | 보안 그룹 규칙 목록, [보안 그룹 규칙 API](#api_1) 참조 |
+| securityGroupRules | Body | List | 보안 그룹 규칙 목록, [보안 그룹 규칙 API](#security-group-rules-api) 참조 |
 
 <a id="modify-security-groups"></a>
 ### 보안 그룹 수정 { #modify-security-groups }
