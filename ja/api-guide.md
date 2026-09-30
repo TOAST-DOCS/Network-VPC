@@ -77,7 +77,7 @@ X-Auth-Token: {tokenId}
 | Description | Body | String | セキュリティーグループの説明 |
 | Security Group ID | Body | String | セキュリティーグループのID |
 | Name | Body | String | セキュリティーグループの名前 |
-| securityGroupRules | Body | List | セキュリティーグループ規則リスト、 [セキュリティーグループ規則API](#api_1)参照 |
+| securityGroupRules | Body | List | セキュリティーグループ規則リスト、 [セキュリティーグループ規則API](#security-group-rules-api)参照 |
 
 <a id="create-security-groups"></a>
 ### セキュリティーグループ作成 { #create-security-groups }
@@ -147,7 +147,7 @@ Content-Type: application/json;charset=UTF-8
 | Description | Body | String | セキュリティーグループの説明 |
 | Security Group ID | Body | String | セキュリティーグループのID |
 | Name | Body | String | セキュリティーグループの名前 |
-| securityGroupRules | Body | List | セキュリティーグループ規則リスト、 [セキュリティーグループ規則API](#api_1)参照 |
+| securityGroupRules | Body | List | セキュリティーグループ規則リスト、 [セキュリティーグループ規則API](#security-group-rules-api)参照 |
 
 <a id="modify-security-groups"></a>
 ### セキュリティーグループ修正 { #modify-security-groups }

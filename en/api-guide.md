@@ -77,7 +77,7 @@ This API does not require a request body.
 | Description | Body | String | Description of a security group |
 | Security Group ID | Body | String | Security group ID |
 | Name | Body | String | Name of a security group |
-| securityGroupRules | Body | List | List of security group rules, in reference of [Security Group Rules API](#api_1) |
+| securityGroupRules | Body | List | List of security group rules, in reference of [Security Group Rules API](#security-group-rules-api) |
 
 <a id="create-security-groups"></a>
 ### Create Security Groups { #create-security-groups }
@@ -147,7 +147,7 @@ Content-Type: application/json;charset=UTF-8
 | Description | Body | String | Description of a security group |
 | Security Group ID | Body | String | Security group ID |
 | Name | Body | String | Name of a security group |
-| securityGroupRules | Body | List | List of security group rules, in reference of [Security Group Rules API](#api_1) |
+| securityGroupRules | Body | List | List of security group rules, in reference of [Security Group Rules API](#security-group-rules-api) |
 
 <a id="modify-security-groups"></a>
 ### Modify Security Groups { #modify-security-groups }
