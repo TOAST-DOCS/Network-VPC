@@ -1,5 +1,7 @@
 <!-- pre-align:aligned sig=c01a9a7408fc -->
 
+{% set f = (build_flags | select("in", ["public","gov","ncgn","ninc","ngsc","ngovc","ngoic"]) | list | first) %}
+{% set support_dom = {"public":"www.nhncloud.com","gov":"www.gov-nhncloud.com","ncgn":"www.gncloud.go.kr","ninc":"www.ninc.go.kr","ngsc":"www.ngsc.go.kr","ngovc":"www.ngovc.com","ngoic":"www.ngoic.com"} %}
 <a id="network-vpc-console-guide"></a>
 ## Network > VPC > 콘솔 사용 가이드 { #network-vpc-console-guide }
 
@@ -150,7 +152,7 @@ VPC를 삭제하기 위해서 서브넷을 모두 삭제 할 수 있는 상태�
 
 > [참고]
 > 안정적인 운영을 위해 정적 라우트는 서브넷당 최대 20개까지 생성할 수 있도록 제한되어 있습니다.
-> 단일 서브넷 내에서 21개 이상의 정적 라우트 생성이 필요한 경우 [고객 센터](https://www.nhncloud.com/kr/support/inquiry)로 문의해 주시기 바랍니다.
+> 단일 서브넷 내에서 21개 이상의 정적 라우트 생성이 필요한 경우 [고객 센터](https://$[ support_dom[f] ]$/kr/support/inquiry)로 문의해 주시기 바랍니다.
 > 
 > 최대 생성 개수 제한을 해제하더라도 DHCP 프로토콜의 제약으로 인해 생성 가능한 정적 라우트 개수가 제한됩니다.
 > * 정적 라우트 정보는 DHCP의 'classless-static-routes' 옵션(Option 121)을 통해 전달됩니다.
@@ -173,7 +175,7 @@ VPC를 삭제하기 위해서 서브넷을 모두 삭제 할 수 있는 상태�
 
 > [참고]
 > 서브넷은 VPC당 최대 10개까지 생성할 수 있습니다. 
-> 단일 VPC 내에서 11개 이상의 서브넷 생성이 필요한 경우 [고객 센터](https://www.nhncloud.com/kr/support/inquiry)로 문의해 주시기 바랍니다. 
+> 단일 VPC 내에서 11개 이상의 서브넷 생성이 필요한 경우 [고객 센터](https://$[ support_dom[f] ]$/kr/support/inquiry)로 문의해 주시기 바랍니다. 
 
 <a id="subnet-modify"></a>
 ### 서브넷 수정 { #subnet-modify }
